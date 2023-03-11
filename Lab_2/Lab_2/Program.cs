@@ -18,5 +18,3 @@ Console.WriteLine("\n{0}Task 2{1}\n", new string('-', 20), new string('-', 20));
 
 Console.WriteLine("Precision for Iteration Method: " + iterationMethod.Precision);
 Console.WriteLine("\nResult for Iteration Method: " + iterationMethod.GetSpecifiedRoot());
-
-Console.WriteLine();
