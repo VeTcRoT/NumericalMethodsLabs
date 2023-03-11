@@ -9,13 +9,13 @@ namespace Lab_2
     public struct IterationMethod
     {
         private double precision;
-        public double Precison
+        public double Precision
         {
             get { return precision; }
         }
         public IterationMethod()
         {
-            precision = 0.01;
+            precision = 0.001;
         }
         private double Function(double operand)
         {
