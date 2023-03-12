@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab_2
+﻿namespace Lab_2
 {
-    struct CombinedMethod
+    public class CombinedMethod
     {
         private ChordMethod chordMethod;
         private NewtonMethod newtonMethod;
         public double Precision { get; set; }
-        public CombinedMethod()
+        public CombinedMethod(Func<double, double> function, Func<double, double> firstDerivativeOfFunc, Func<double, double> secondDerivativeOfFunc)
         {
-            chordMethod = new ChordMethod();
-            newtonMethod = new NewtonMethod();
+            chordMethod = new ChordMethod(function);
+            newtonMethod = new NewtonMethod(function, firstDerivativeOfFunc, secondDerivativeOfFunc);
             Precision = 0.001;
         }
-        public CombinedMethod(double precision) : this()
+        public CombinedMethod(Func<double, double> function, Func<double, double> firstDerivativeOfFunc, Func<double, double> secondDerivativeOfFunc, double precision) : 
+            this(function, firstDerivativeOfFunc, secondDerivativeOfFunc)
         {
             Precision = precision;
         }
