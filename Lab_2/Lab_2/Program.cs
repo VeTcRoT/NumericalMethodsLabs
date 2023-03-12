@@ -4,15 +4,19 @@ var chordMethod = new ChordMethod();
 
 var newtonMethod = new NewtonMethod();
 
+var combinedMethod = new CombinedMethod();
+
 var iterationMethod = new IterationMethod();
 
 Console.WriteLine("\n{0}Task 1{1}\n", new string('-', 20), new string('-', 20));
 
 Console.WriteLine("Precision for Chord Method: " + chordMethod.Precision);
 Console.WriteLine("Precision for Newton Method: " + newtonMethod.Precision);
+Console.WriteLine("Precision for Combined Method: " + combinedMethod.Precision);
 
 Console.WriteLine("\nResult for Chord Method: " + chordMethod.GetSpecifiedRoot());
 Console.WriteLine("Result for Newton Method: " + newtonMethod.GetSpecifiedRoot());
+Console.WriteLine("Result for Combined Method: " + combinedMethod.GetSpecifiedRoot());
 
 Console.WriteLine("\n{0}Task 2{1}\n", new string('-', 20), new string('-', 20));
 

@@ -2,33 +2,32 @@
 {
     public struct NewtonMethod
     {
-        private double precision;
-        public double Precision
-        {
-            get { return precision; }
-        }
-
+        public double Precision { get; set; }
         public NewtonMethod()
         {
-            precision = 0.01;
+            Precision = 0.01;
         }
-        private double Function(double operand)
+        public NewtonMethod(double precision)
+        {
+            Precision = precision;
+        }
+        public double Function(double operand)
         {
             return 3 * operand - Math.Cos(operand) - 1;
-        } 
-        private double FirstDerivativeOfFunction(double operand)
+        }
+        public double FirstDerivativeOfFunction(double operand)
         {
             return 3 + Math.Sin(operand);
         }
-        private double SecondDerivativeOfFunction(double operand)
+        public double SecondDerivativeOfFunction(double operand)
         {
             return Math.Cos(operand);
         }
-        private double NewtonMethodFunction(double operand)
+        public double NewtonMethodFunction(double operand)
         {
             return operand - Function(operand) / FirstDerivativeOfFunction(operand);
         }
-        private int[] GetCoordinates()
+        public int[] GetCoordinates()
         {
             int[] coordinates = new int[2];
 
@@ -67,7 +66,7 @@
                 previousX = x;
                 x = NewtonMethodFunction(x);
 
-                if (Math.Abs(x - previousX) < precision)
+                if (Math.Abs(x - previousX) < Precision)
                 {
                     break;
                 }

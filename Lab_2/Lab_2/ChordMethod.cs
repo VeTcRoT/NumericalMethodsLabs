@@ -2,25 +2,24 @@
 {
     public struct ChordMethod
     {
-        private double precision;
-        public double Precision
-        {
-            get { return precision; }
-        }
-
+        public double Precision { get; set; }
         public ChordMethod()
         {
-            precision = 0.01;
+            Precision = 0.01;
         }
-        private double Function(double operand)
+        public ChordMethod(double precision)
+        {
+            Precision = precision;
+        }
+        public double Function(double operand)
         {
             return 3 * operand - Math.Cos(operand) - 1;
         }
-        private double ChordEquation(double coordinate1, double coordinate2)
+        public double ChordEquation(double coordinate1, double coordinate2)
         {
             return coordinate1 - ((Function(coordinate1) * (coordinate2 - coordinate1)) / (Function(coordinate2) - Function(coordinate1)));
         }
-        private int[] GetCoordinates()
+        public int[] GetCoordinates()
         {
             int[] coordinates = new int[2];
 
@@ -68,7 +67,7 @@
                 previousX = x;
                 x = ChordEquation(coordinate1, coordinate2);
 
-                if (Math.Abs(x - previousX) < precision)
+                if (Math.Abs(x - previousX) < Precision)
                 {
                     break;
                 }
