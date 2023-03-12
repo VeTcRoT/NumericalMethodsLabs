@@ -29,7 +29,7 @@ namespace Lab_2
         {
             return Math.Pow(operand, 2) / 3;
         }
-        private int GetCoordinates(int[] coordinates = null)
+        private int GetFixedPoint(int[] coordinates = null)
         {
             if (coordinates == null)
             {
@@ -64,22 +64,22 @@ namespace Lab_2
             }
             else
             {
-                GetCoordinates(coordinates);
+                GetFixedPoint(coordinates);
             }
 
             return -1;
         }
         public double GetSpecifiedRoot()
         {
-            int coordinate = GetCoordinates();
+            int fixedPoint = GetFixedPoint();
 
-            if (coordinate == -1)
+            if (fixedPoint == -1)
             {
                 return -1;
             }
 
             double previousX = 0;
-            double x = coordinate;
+            double x = fixedPoint;
 
             while (true)
             {
