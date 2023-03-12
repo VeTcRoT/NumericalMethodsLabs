@@ -1,19 +1,20 @@
 ﻿namespace Lab_2
 {
-    public struct ChordMethod
+    public class ChordMethod
     {
-        public double Precision { get; set; }
-        public ChordMethod()
+        private Func<double, double> function;
+        public double Precision { get; set; } = 0.01;
+        public ChordMethod(Func<double, double> function)
         {
-            Precision = 0.01;
+            this.function = function;
         }
-        public ChordMethod(double precision)
+        public ChordMethod(Func<double, double> function, double precision) : this(function)
         {
             Precision = precision;
         }
         public double Function(double operand)
         {
-            return 3 * operand - Math.Cos(operand) - 1;
+            return function(operand);
         }
         public double ChordEquation(double coordinate1, double coordinate2)
         {

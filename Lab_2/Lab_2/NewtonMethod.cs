@@ -1,27 +1,33 @@
 ﻿namespace Lab_2
 {
-    public struct NewtonMethod
+    public class NewtonMethod
     {
-        public double Precision { get; set; }
-        public NewtonMethod()
+        private Func<double, double> function;
+        private Func<double, double> firstDerivativeOfFunc;
+        private Func<double, double> secondDerivativeOfFunc;
+        public double Precision { get; set; } = 0.01;
+        public NewtonMethod(Func<double, double> function, Func<double, double> firstDerivativeOfFunc, Func<double, double> secondDerivativeOfFunc)
         {
-            Precision = 0.01;
+            this.function = function;
+            this.firstDerivativeOfFunc = firstDerivativeOfFunc;
+            this.secondDerivativeOfFunc = secondDerivativeOfFunc;
         }
-        public NewtonMethod(double precision)
+        public NewtonMethod(Func<double, double> function, Func<double, double> firstDerivativeOfFunc, Func<double, double> secondDerivativeOfFunc, double precision) : 
+            this(function, firstDerivativeOfFunc, secondDerivativeOfFunc)
         {
             Precision = precision;
         }
         public double Function(double operand)
         {
-            return 3 * operand - Math.Cos(operand) - 1;
+            return function(operand);
         }
         public double FirstDerivativeOfFunction(double operand)
         {
-            return 3 + Math.Sin(operand);
+            return firstDerivativeOfFunc(operand);
         }
         public double SecondDerivativeOfFunction(double operand)
         {
-            return Math.Cos(operand);
+            return secondDerivativeOfFunc(operand);
         }
         public double NewtonMethodFunction(double operand)
         {

@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab_2
+﻿namespace Lab_2
 {
-    public struct IterationMethod
+    public class IterationMethod
     {
+        private Func<double, double> function;
+        private Func<double, double> iterationTypeFunction;
+        private Func<double, double> firstDerivativeOfIterationTypeFunc;
         public double Precision { get; set; }
-        public IterationMethod()
+        public IterationMethod(Func<double, double> function, Func<double, double> iterationTypeFunction, Func<double, double> firstDerivativeOfIterationTypeFunc)
         {
+            this.function = function;
+            this.iterationTypeFunction = iterationTypeFunction;
+            this.firstDerivativeOfIterationTypeFunc = firstDerivativeOfIterationTypeFunc;
             Precision = 0.001;
         }
-        public IterationMethod(double precision)
+        public IterationMethod(Func<double, double> function, Func<double, double> iterationTypeFunction, Func<double, double> firstDerivativeOfIterationTypeFunc, double precision) : 
+            this(function, iterationTypeFunction, firstDerivativeOfIterationTypeFunc)
         {
             Precision = precision;
         }

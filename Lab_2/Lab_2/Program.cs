@@ -1,12 +1,12 @@
 ﻿using Lab_2;
 
-var chordMethod = new ChordMethod();
+var chordMethod = new ChordMethod(LabEquations.Function);
 
-var newtonMethod = new NewtonMethod();
+var newtonMethod = new NewtonMethod(LabEquations.Function, LabEquations.FirstDerivativeOfFunction, LabEquations.SecondDerivativeOfFunction);
 
-var combinedMethod = new CombinedMethod();
+var combinedMethod = new CombinedMethod(LabEquations.Function, LabEquations.FirstDerivativeOfFunction, LabEquations.SecondDerivativeOfFunction);
 
-var iterationMethod = new IterationMethod();
+var iterationMethod = new IterationMethod(LabEquations.FunctionForIteration, LabEquations.IterationTypeFunction, LabEquations.FirstDerivativeOfIterationTypeFunction);
 
 Console.WriteLine("\n{0}Task 1{1}\n", new string('-', 20), new string('-', 20));
 
