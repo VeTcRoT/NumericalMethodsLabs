@@ -79,7 +79,7 @@ namespace Lab_2
             }
 
             double previousX = 0;
-            double x = 0;
+            double x = coordinate;
 
             while (true)
             {
