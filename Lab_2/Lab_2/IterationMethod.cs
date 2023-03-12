@@ -8,28 +8,28 @@ namespace Lab_2
 {
     public struct IterationMethod
     {
-        private double precision;
-        public double Precision
-        {
-            get { return precision; }
-        }
+        public double Precision { get; set; }
         public IterationMethod()
         {
-            precision = 0.001;
+            Precision = 0.001;
         }
-        private double Function(double operand)
+        public IterationMethod(double precision)
+        {
+            Precision = precision;
+        }
+        public double Function(double operand)
         {
             return Math.Pow(operand, 3) - 3 * operand + 1;
         }
-        private double IterationTypeFunction(double operand)
+        public double IterationTypeFunction(double operand)
         {
             return (Math.Pow(operand, 3) + 1) / 3;
         }
-        private double FirstDerivativeOfIterationTypeFunction(double operand)
+        public double FirstDerivativeOfIterationTypeFunction(double operand)
         {
             return Math.Pow(operand, 2) / 3;
         }
-        private int GetFixedPoint(int[] coordinates = null)
+        public int GetFixedPoint(int[] coordinates = null)
         {
             if (coordinates == null)
             {
@@ -85,7 +85,7 @@ namespace Lab_2
             {
                 previousX = x;
                 x = IterationTypeFunction(x);
-                if (Math.Abs(x - previousX) < precision)
+                if (Math.Abs(x - previousX) < Precision)
                 {
                     break;
                 }    
