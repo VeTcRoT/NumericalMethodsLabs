@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace Lab_2
+﻿namespace Lab_2
 {
     public static class LabEquations
     {
