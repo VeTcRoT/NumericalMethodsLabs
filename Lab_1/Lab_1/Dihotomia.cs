@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace Lab_1
 {
-    static class Dihotomia_1
+    public class Dihotomia
     {
-        private static double precision = 0.001;
-        private static double Function(double operand)
+        private Func<double, double> function;
+        public double Precision { get; set; } = 0.001;
+        public Dihotomia(Func<double, double> function)
         {
-            return 3 * operand - Math.Cos(operand) - 1;
+            this.function = function;
         }
-        private static int[] GetCoordinates()
+        public Dihotomia(Func<double, double> function, double precision) :this(function)
+        {
+            Precision = precision;
+        }
+        private double Function(double operand)
+        {
+            return function(operand);
+        }
+        private int[] GetCoordinates()
         {
             int[] coordinates = new int[2];
             for (int i = 0; true; i++)
@@ -34,7 +43,7 @@ namespace Lab_1
             }
             return coordinates;
         }
-        public static double GetSpecifiedRoot()
+        public double GetSpecifiedRoot()
         {
             int[] coordinates = GetCoordinates();
             double a = coordinates[0];
@@ -45,7 +54,7 @@ namespace Lab_1
             {
                 x = (a + b) / 2;
 
-                if (Math.Abs(a - b) < precision)
+                if (Math.Abs(a - b) < Precision)
                     break;
 
                 if (Function(x) > 0)
