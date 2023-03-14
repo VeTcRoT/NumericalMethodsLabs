@@ -2,7 +2,7 @@
 
 double Function(double operand)
 {
-    return Math.Pow(operand, 4) + 2 * Math.Pow(operand, 3) - operand - 1; 
+    return 3 * operand - Math.Cos(operand) - 1; 
 }
 
 double Function_2(double operand)

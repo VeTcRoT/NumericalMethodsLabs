@@ -56,21 +56,30 @@
 
             if (Function(ChordEquation(coordinate1, coordinate2)) < 0)
             {
-                coordinate1 = ChordEquation(coordinate1, coordinate2);
+                x = ChordEquation(coordinate1, coordinate2);
+                while (true)
+                {
+                    previousX = x;
+                    x = ChordEquation(previousX, coordinate2);
+
+                    if (Math.Abs(x - previousX) < Precision)
+                    {
+                        break;
+                    }
+                }
             }
             else
             {
-                coordinate2 = ChordEquation(coordinate1, coordinate2);
-            }
-
-            while (true)
-            {
-                previousX = x;
                 x = ChordEquation(coordinate1, coordinate2);
-
-                if (Math.Abs(x - previousX) < Precision)
+                while (true)
                 {
-                    break;
+                    previousX = x;
+                    x = ChordEquation(coordinate1, previousX);
+
+                    if (Math.Abs(x - previousX) < Precision)
+                    {
+                        break;
+                    }
                 }
             }
 
