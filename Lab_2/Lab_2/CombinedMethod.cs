@@ -11,7 +11,7 @@
             newtonMethod = new NewtonMethod(function, firstDerivativeOfFunc, secondDerivativeOfFunc);
             Precision = 0.001;
         }
-        public CombinedMethod(Func<double, double> function, Func<double, double> firstDerivativeOfFunc, Func<double, double> secondDerivativeOfFunc, double precision) : 
+        public CombinedMethod(Func<double, double> function, Func<double, double> firstDerivativeOfFunc, Func<double, double> secondDerivativeOfFunc, double precision) :
             this(function, firstDerivativeOfFunc, secondDerivativeOfFunc)
         {
             Precision = precision;
